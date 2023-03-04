@@ -6,6 +6,10 @@ var angular_speed: float = PI
 var input_direction: int = 0
 var input_movement: Vector2 = Vector2.ZERO
 
+func _ready():
+	var timer = get_node("Timer") as Timer
+	timer.timeout.connect(_on_Timer_timeout)
+
 func _process(delta):
 	HandleInputs()
 	Turn(delta)
@@ -33,3 +37,6 @@ func Move(delta):
 
 func _on_button_pressed():
 	set_process(not is_processing())
+
+func _on_Timer_timeout():
+	visible = not visible
