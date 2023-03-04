@@ -30,3 +30,6 @@ func Turn(delta):
 func Move(delta):
 	var velocity: Vector2 = input_movement * speed
 	position += velocity * delta
+
+func _on_button_pressed():
+	set_process(not is_processing())
